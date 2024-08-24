@@ -1,12 +1,12 @@
 import Image from "next/image";
-import HeroSection from "../components/HeroSection";
-import ServicesSection from "../components/ServicesSection";
-import WorkSection from "../components/WorkSection";
-import LocationSection from "../components/LocationSection";
-import TestimonialSection from '../components/TestimonialSection'
-import NewSlatterSection from '../components/NewSlatterSection'
+import HeroSection from "../components/home/HeroSection";
+import ServicesSection from "../components/home/ServicesSection";
+import WorkSection from "../components/home/WorkSection";
+import LocationSection from "../components/home/LocationSection";
+import TestimonialSection from '../components/home/TestimonialSection'
+import NewSlatterSection from '../components/home/NewSlatterSection'
 
-import BlogSection from '../components/BlogSection'
+import BlogSection from '../components/home/BlogSection'
 
 export default function Home() {
   return (
