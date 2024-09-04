@@ -22,9 +22,9 @@ export default function Header() {
         <div className="row">
           <div className="col-lg-3 col-md-3">
             <div className="header__logo">
-              <a href="./index.html">
-                <Image src="/img/Logo.jpg" width={180} height={45} alt="" />
-              </a>
+              <Link href="/home">
+                <Image src="/img/Logo.jpg" width={220} height={45} alt="" />
+              </Link>
             </div>
           </div>
           <div className="col-lg-9 col-md-9">
@@ -60,12 +60,12 @@ export default function Header() {
                 </ul>
               </nav>
               <div className="header__menu__right">
-                <a href="#" className="primary-btn">
+                <Link href="#" className="primary-btn">
                   <i className="fa fa-plus"></i>Add Listing
-                </a>
-                <a href="#" className="login-btn">
+                </Link>
+                <Link href="/signin" className="login-btn" as="/signin" passHref>
                   <i className="fa fa-user"></i>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

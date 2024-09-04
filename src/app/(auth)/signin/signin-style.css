@@ -1,0 +1,30 @@
+.site-wrap-signin {
+  height: 85vh;
+  min-height: 85vh;
+}
+@media (min-width: 768px) {
+  .bg-img-signin,
+  .form-wrap-signin {
+    width: 50%;
+    height: 85vh;
+    min-height: 85vh;
+  }
+}
+
+@media (min-width: 992px) {
+  .bg-img-signin,
+  .form-wrap-signin {
+    width: 50%;
+    height: 85vh;
+    min-height: 85vh;
+  }
+}
+
+@media (min-width: 1200px) {
+  .bg-img-signin,
+  .form-wrap-signin {
+    width: 60%;
+    height: 85vh;
+    min-height: 85vh;
+  }
+}

@@ -6,27 +6,33 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "postinstall": "mkdir public\\js && copy node_modules\\jquery\\dist\\jquery.min.js public\\js\\jquery.min.js"
+    "lint": "next lint"
   },
   "dependencies": {
     "@flaticon/flaticon-uicons": "^3.3.1",
-    "bootstrap": "^4.4.1",
     "client-only": "^0.0.1",
+    "clsx": "^2.1.1",
+    "dotenv": "^16.4.5",
     "elegant-icons": "^0.0.1",
     "fe-pet-packet-final": "file:",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.3.1",
-    "jquery-ui": "^1.12.1",
+    "formik": "^2.4.6",
+    "install": "^0.13.0",
     "next": "14.2.5",
-    "owl.carousel": "^2.3.4",
-    "react": "^18",
-    "react-dom": "^18",
-    "slicknav": "^1.0.8"
+    "next-auth": "5.0.0-beta.20",
+    "npm": "^10.8.2",
+    "query-string": "^9.1.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
-    "@types/node": "22.1.0",
-    "@types/react": "18.3.3",
+    "@types/cookie": "^0.6.0",
+    "@types/json5": "^2.2.0",
+    "@types/node": "^22.5.3",
+    "@types/react": "^18.3.5",
+    "@types/stylis": "^4.2.6",
+    "babel-plugin-styled-components": "^2.1.4",
     "eslint": "^8",
     "eslint-config-next": "14.2.5"
   }

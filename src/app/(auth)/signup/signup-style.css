@@ -1,0 +1,30 @@
+.site-wrap-signup {
+  height: 130vh;
+  min-height: 130vh;
+}
+@media (min-width: 768px) {
+  .bg-img-signup,
+  .form-wrap-signup {
+    width: 50%;
+    height: 130vh;
+    min-height: 130vh;
+  }
+}
+
+@media (min-width: 992px) {
+  .bg-img-signup,
+  .form-wrap-signup {
+    width: 50%;
+    height: 130vh;
+    min-height: 130vh;
+  }
+}
+
+@media (min-width: 1200px) {
+  .bg-img-signup,
+  .form-wrap-signup {
+    width: 60%;
+    height: 130vh;
+    min-height: 130vh;
+  }
+}

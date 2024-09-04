@@ -2,11 +2,11 @@ import Image from "next/image";
 
 export default function WorkSection() {
   return (
-    <section class="work spad">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="section-title">
+    <section className="work spad">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12">
+            <div className="section-title">
               <h2>How Does It Work</h2>
               <p>
                 Travelocity empowers travelers who are giving back on their
@@ -15,10 +15,10 @@ export default function WorkSection() {
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-4 col-md-6">
-            <div class="work__item">
-              <div class="work__item__number">01.</div>
+        <div className="row">
+          <div className="col-lg-4 col-md-6">
+            <div className="work__item">
+              <div className="work__item__number">01.</div>
               <Image
                 src="/img/work/work-1.png"
                 alt=""
@@ -32,9 +32,9 @@ export default function WorkSection() {
               </p>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="work__item">
-              <div class="work__item__number">02.</div>
+          <div className="col-lg-4 col-md-6">
+            <div className="work__item">
+              <div className="work__item__number">02.</div>
               <Image
                 src="/img/work/work-2.png"
                 alt=""
@@ -48,9 +48,9 @@ export default function WorkSection() {
               </p>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="work__item">
-              <div class="work__item__number">03.</div>
+          <div className="col-lg-4 col-md-6">
+            <div className="work__item">
+              <div className="work__item__number">03.</div>
               <Image
                 src="/img/work/work-3.png"
                 alt=""

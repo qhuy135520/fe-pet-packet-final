@@ -1,0 +1,27 @@
+@media (min-width: 768px) {
+  .bg-img-verify-otp,
+  .form-wrap-verify-otp {
+    width: 50%;
+    height: 80vh;
+  }
+}
+
+@media (min-width: 992px) {
+  .bg-img-verify-otp,
+  .form-wrap-verify-otp {
+    width: 50%;
+    height: 80vh;
+  }
+}
+
+@media (min-width: 1200px) {
+  .bg-img-verify-otp,
+  .form-wrap-verify-otp {
+    width: 60%;
+    height: 80vh;
+  }
+  .site-wrap-verify-otp {
+    height: 80vh;
+    min-height: 80vh;
+  }
+}

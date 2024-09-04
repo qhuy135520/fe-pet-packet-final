@@ -1,25 +1,25 @@
 export default function LocationSection() {
   return (
-    <section class="feature-location spad">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="section-title">
+    <section className="feature-location spad">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12">
+            <div className="section-title">
               <h2>Top Featured Locations</h2>
               <p>Explore services, bars, and cafés by locality</p>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-6">
+        <div className="row">
+          <div className="col-lg-6">
             <a
               href="#"
-              class="feature__location__item large-item set-bg"
+              className="feature__location__item large-item set-bg"
               style={{
                 backgroundImage: "url('/img/feature-location/fl-1.jpg')",
               }}
             >
-              <div class="feature__location__item__text">
+              <div className="feature__location__item__text">
                 <h5>Washington, D.C</h5>
                 <ul>
                   <li>2045 Listings</li>
@@ -28,30 +28,30 @@ export default function LocationSection() {
               </div>
             </a>
           </div>
-          <div class="col-lg-6">
-            <div class="row">
-              <div class="col-lg-6 col-md-6">
+          <div className="col-lg-6">
+            <div className="row">
+              <div className="col-lg-6 col-md-6">
                 <a
                   href="#"
-                  class="feature__location__item set-bg"
+                  className="feature__location__item set-bg"
                   style={{
                     backgroundImage: "url('/img/feature-location/fl-2.jpg')",
                   }}
                 >
-                  <div class="feature__location__item__text">
+                  <div className="feature__location__item__text">
                     <h5>Chicago</h5>
                   </div>
                 </a>
               </div>
-              <div class="col-lg-6 col-md-6">
+              <div className="col-lg-6 col-md-6">
                 <a
                   href="#"
-                  class="feature__location__item set-bg"
+                  className="feature__location__item set-bg"
                   style={{
                     backgroundImage: "url('/img/feature-location/fl-3.jpg')",
                   }}
                 >
-                  <div class="feature__location__item__text">
+                  <div className="feature__location__item__text">
                     <h5>San Antonio</h5>
                   </div>
                 </a>
@@ -59,12 +59,12 @@ export default function LocationSection() {
             </div>
             <a
               href="#"
-              class="feature__location__item set-bg"
+              className="feature__location__item set-bg"
               style={{
                 backgroundImage: "url('/img/feature-location/fl-4.jpg')",
               }}
             >
-              <div class="feature__location__item__text">
+              <div className="feature__location__item__text">
                 <h5>Los Angeles</h5>
               </div>
             </a>
