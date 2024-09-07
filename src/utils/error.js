@@ -9,10 +9,15 @@ export class CustomAuthError extends AuthError {
 }
 
 export class InvalidUsernamePasswordError extends AuthError {
-  static type = "Email/Password is invalid!";
+  static type = "Username/Password is invalid!";
 }
 
 export class InactiveAccountError extends AuthError {
   static type = "Account not activated";
 }
+
+export class InvalidOtpError extends AuthError {
+  static type = "Account not activated";
+}
+
 

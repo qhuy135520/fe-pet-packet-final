@@ -7,16 +7,11 @@ import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 
 export default function VerifyOtpSignup() {
-  const [emailSignup, setEmailSignup] = useState("");
-  const [otpSignup, setOtpSignup] = useState("");
+  const [email, setEmail] = useState("");
   const router = useRouter();
 
-  useEffect(() => {
-    setEmailSignup(localStorage.getItem("emailSignup"));
-  }, []);
-
   function handleChange(e) {
-    setOtpSignup(e.target.value);
+    setEmail(e.target.value);
   }
 
   async function handleSubmit(e) {
@@ -24,14 +19,11 @@ export default function VerifyOtpSignup() {
 
     const res = await sendRequest({
       method: "POST",
-      url: `${process.env.NEXT_PUBLIC_API_URL}/api/auth/verify-otp-signup`,
+      url: `${process.env.NEXT_PUBLIC_API_URL}/api/auth/forgot-password`,
       body: {
-        email: emailSignup,
-        otp: otpSignup,
-        useCredentials: true,
+        email: email,
       },
     });
-    console.log(res);
     if (res?.error) {
       toast.error(
         <div>
@@ -43,38 +35,29 @@ export default function VerifyOtpSignup() {
         }
       );
     } else {
-      router.push("/signin");
-      localStorage.removeItem("emailSignup");
-      toast.success(
-        <div>
-          <strong>Registration successful</strong>
-          <p>Please log in again to experience the system!</p>
-        </div>,
-        {
-          theme: "light",
-        }
-      );
+      router.push("/verify-otp-reset");
+      localStorage.setItem("emailResetPassword", email);
     }
   }
   return (
     <>
       <div className="form-inner">
-        <h1 className="title">SIGN UP</h1>
-        <p className="caption mb-4">Create your account in seconds.</p>
-        <h4 className="">We have sent OTP to your gmail: </h4>
-        <h5 style={{ textAlign: "" }}>{emailSignup}</h5>
+        <h1 className="title">RESET PASSWORD</h1>
+        <p className="caption mb-4">
+          Please enter your email to Reset Password
+        </p>
         <form action="#" className="pt-3">
           <div className="form-group form-floating ">
             <span className="has-float-label">
-              <label htmlFor="otp">OTP</label>
+              <label htmlFor="email">Email</label>
               <input
                 type="text"
                 className="form-control"
-                id="otp"
-                placeholder="Enter OTP"
-                name="otp"
+                id="email"
+                placeholder="Enter Email"
+                name="email"
                 autoComplete="off"
-                value={otpSignup}
+                value={email}
                 onChange={(e) => handleChange(e)}
               />
             </span>

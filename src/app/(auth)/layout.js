@@ -10,7 +10,6 @@ export default function AuthenLayout({ children }) {
 
   const pathname = usePathname();
   const currentPath = pathname || "";
-  console.log(pathname);
   return (
     <>
       <div

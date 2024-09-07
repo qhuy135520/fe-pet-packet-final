@@ -1,8 +1,15 @@
+.form-wrap-verify-otp{
+  min-height: 75vh;
+}
 @media (min-width: 768px) {
   .bg-img-verify-otp,
   .form-wrap-verify-otp {
     width: 50%;
-    height: 80vh;
+    height: 70vh;
+  }
+  .site-wrap-verify-otp {
+    height: 70vh;
+    min-height: 70vh;
   }
 }
 
@@ -10,8 +17,9 @@
   .bg-img-verify-otp,
   .form-wrap-verify-otp {
     width: 50%;
-    height: 80vh;
+    height: 75vh;
   }
+  
 }
 
 @media (min-width: 1200px) {

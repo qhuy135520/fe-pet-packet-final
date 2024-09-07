@@ -6,13 +6,13 @@ import { sendRequest } from "@/utils/api";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 
-export default function VerifyOtpSignup() {
-  const [emailSignup, setEmailSignup] = useState("");
-  const [otpSignup, setOtpSignup] = useState("");
+export default function VerifyOtpReset() {
+  const [emailResetPassword, setEmailResetPassword] = useState("");
+  const [otpResetPassword, setOtpSignup] = useState("");
   const router = useRouter();
 
   useEffect(() => {
-    setEmailSignup(localStorage.getItem("emailSignup"));
+    setEmailResetPassword(localStorage.getItem("emailResetPassword"));
   }, []);
 
   function handleChange(e) {
@@ -24,10 +24,10 @@ export default function VerifyOtpSignup() {
 
     const res = await sendRequest({
       method: "POST",
-      url: `${process.env.NEXT_PUBLIC_API_URL}/api/auth/verify-otp-signup`,
+      url: `${process.env.NEXT_PUBLIC_API_URL}/api/auth/verify-otp-reset-password`,
       body: {
-        email: emailSignup,
-        otp: otpSignup,
+        email: emailResetPassword,
+        otp: otpResetPassword,
         useCredentials: true,
       },
     });
@@ -35,7 +35,7 @@ export default function VerifyOtpSignup() {
     if (res?.error) {
       toast.error(
         <div>
-          <strong>Error Sign Up</strong>
+          <strong>Error Reset Password</strong>
           <p style={{ color: "white" }}>{res?.message}</p>
         </div>,
         {
@@ -43,26 +43,17 @@ export default function VerifyOtpSignup() {
         }
       );
     } else {
-      router.push("/signin");
-      localStorage.removeItem("emailSignup");
-      toast.success(
-        <div>
-          <strong>Registration successful</strong>
-          <p>Please log in again to experience the system!</p>
-        </div>,
-        {
-          theme: "light",
-        }
-      );
+      router.push("/reset-password");
+      localStorage.removeItem("emailResetPassword");
     }
   }
   return (
     <>
       <div className="form-inner">
-        <h1 className="title">SIGN UP</h1>
-        <p className="caption mb-4">Create your account in seconds.</p>
+        <h1 className="title">RESET PASSWORD</h1>
+        <p className="caption mb-4">Reset your account in seconds.</p>
         <h4 className="">We have sent OTP to your gmail: </h4>
-        <h5 style={{ textAlign: "" }}>{emailSignup}</h5>
+        <h5 style={{ textAlign: "" }}>{emailResetPassword}</h5>
         <form action="#" className="pt-3">
           <div className="form-group form-floating ">
             <span className="has-float-label">
@@ -74,7 +65,7 @@ export default function VerifyOtpSignup() {
                 placeholder="Enter OTP"
                 name="otp"
                 autoComplete="off"
-                value={otpSignup}
+                value={otpResetPassword}
                 onChange={(e) => handleChange(e)}
               />
             </span>

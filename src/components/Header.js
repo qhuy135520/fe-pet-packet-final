@@ -1,10 +1,15 @@
-'use client'
+"use client";
+import refreshSession from "@/library/refreshSession";
+import { unauthenticate } from "@/utils/action";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 const navLinks = [
-  { name: "Home", href: "/home" },
+  { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
   { name: "Categories", href: "/categories" },
   { name: "Blog", href: "/blog" },
@@ -12,9 +17,28 @@ const navLinks = [
 ];
 
 export default function Header() {
+  const { data: session, status } = useSession();
 
   const pathname = usePathname();
-  
+
+  async function handleSignOut() {
+    await unauthenticate();
+    await refreshSession();
+
+    toast.info(
+      <div>
+        <strong>Logout successful</strong>
+        <p>You have successfully logged out!</p>
+      </div>,
+      {
+        theme: "light",
+      }
+    );
+  }
+
+  useEffect(() => {
+    console.log("Session:", session);
+  }, [session]);
 
   return (
     <header className="header header--normal">
@@ -32,10 +56,10 @@ export default function Header() {
               <nav className="header__menu mobile-menu">
                 <ul>
                   {navLinks.map((link) => {
-                    const isActive = pathname.startsWith(link.href)
+                    const isActive = pathname.startsWith(link.href);
                     return (
-                      <li key={link.name} className={isActive ? 'active' : ''}>
-                        <Link href={link.href} >{link.name}</Link>
+                      <li key={link.name} className={isActive ? "active" : ""}>
+                        <Link href={link.href}>{link.name}</Link>
                       </li>
                     );
                   })}
@@ -63,9 +87,42 @@ export default function Header() {
                 <Link href="#" className="primary-btn">
                   <i className="fa fa-plus"></i>Add Listing
                 </Link>
-                <Link href="/signin" className="login-btn" as="/signin" passHref>
-                  <i className="fa fa-user"></i>
-                </Link>
+                {session?.user?.role !== "ROLE_CUSTOMER" ? (
+                  <Link
+                    href="/signin"
+                    className="login-btn"
+                    as="/signin"
+                    passHref
+                  >
+                    <i className="fa fa-user"></i>
+                  </Link>
+                ) : (
+                  <nav className="header__menu header__menu__user">
+                    <ul>
+                      <li>
+                        <a>
+                          <div className="login-btn">
+                            <i className="fa fa-user"></i>
+                          </div>
+                        </a>
+                        <ul className="dropdown">
+                          <li>
+                            <Link href="/profile">
+                              <i className="fa-solid fa-address-card"></i>{" "}
+                              &nbsp; Profile
+                            </Link>
+                          </li>
+                          <li>
+                            <Link href="#" onClick={() => handleSignOut()}>
+                              <i className="fa-solid fa-arrow-right-from-bracket"></i>
+                              &nbsp;&nbsp; Sign Out
+                            </Link>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </nav>
+                )}
               </div>
             </div>
           </div>

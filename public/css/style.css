@@ -385,6 +385,22 @@ ol {
 	display: none;
 }
 
+.header__menu__user ul li{
+	margin-right: 0px !important;
+}
+
+.header__menu__user ul li a {
+    padding: 0;
+}
+
+.header__menu__user ul li .dropdown {
+	left: auto;
+	right: 0;
+	width: 130px;
+	top: 160px;
+	margin-top: 12px;
+}
+
 /*---------------------
   Hero
 -----------------------*/

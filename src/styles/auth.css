@@ -251,3 +251,11 @@ a:hover {
   background-color: #ffbaba;
   background-image: url("https://i.imgur.com/GnyDvKN.png");
 }
+
+.ant-notification-notice {
+  background-color: #f0f0f0;
+}
+
+.ant-notification-notice-error {
+  background-color: #f0f0f0;
+}

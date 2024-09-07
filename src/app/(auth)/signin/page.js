@@ -1,14 +1,16 @@
 "use client";
 import Link from "next/link";
 
-import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { toast } from "react-toastify";
 import SocialWrap from "../../../components/SocialWrap";
 import { authenticate } from "../../../utils/action";
+import refreshSession from "@/library/refreshSession";
 
 export default function LoginForm() {
   const router = useRouter();
+
   const [state, setState] = useState({
     username: "",
     password: "",
@@ -25,13 +27,27 @@ export default function LoginForm() {
 
     const res = await authenticate(state.username, state.password);
 
-    console.log("check data: ", res);
+    // Check Username and Password
+    if (res?.error) {
+      toast.error(
+        <div>
+          <strong>Error Login</strong>
+          <p style={{ color: "white" }}>{res?.error}</p>
+        </div>,
+        {
+          theme: "dark",
+        }
+      );
+    } else {
+      localStorage.setItem("loginSuccessful", "true");
+      window.location.href = "/home";
+    }
   }
 
   return (
     <>
       <div className="form-inner">
-        <h1 className="title">Login</h1>
+        <h1 className="title">LOGIN</h1>
         <p className="caption mb-4">
           Please enter your login details to sign in.
         </p>
@@ -39,12 +55,12 @@ export default function LoginForm() {
         <form action="#" className="pt-3">
           <div className="form-group form-floating ">
             <span className="has-float-label">
-              <label htmlFor="username">Username</label>
+              <label htmlFor="username">Username/Password</label>
               <input
                 type="text"
                 className="form-control"
                 id="username"
-                placeholder="Username"
+                placeholder="Username/Password"
                 name="username"
                 value={state.username}
                 onChange={(e) => handleChange(e)}

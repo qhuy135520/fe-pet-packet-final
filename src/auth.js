@@ -1,6 +1,10 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import { InvalidUsernamePasswordError, CustomAuthError } from "@/utils/error";
+import {
+  InvalidUsernamePasswordError,
+  CustomAuthError,
+  InactiveAccountError,
+} from "@/utils/error";
 import { sendRequest } from "./utils/api";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
@@ -22,25 +26,24 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           },
         });
 
-        if (!res.statusCode) {
-          console.log("check res: ", res);
+        if (res.statusCode === 200) {
           return {
-            token: res.token,
-            type: res.type,
-            userId: res.userResponse.userId,
-            username: res.userResponse.username,
-            email: res.userResponse.email,
-            address: res.userResponse.address,
-            fullName: res.userResponse.fullName,
-            gender: res.userResponse.gender,
-            phone: res.userResponse.phone,
-            status: res.userResponse.status,
-            role: res.userResponse.role,
-            image: res.userResponse.image,
+            access_token: res.data.access_token,
+            type: res.data.type,
+            userId: res.data.user.userId,
+            username: res.data.user.username,
+            email: res.data.user.email,
+            address: res.data.user.address,
+            name: res.data.user.name,
+            gender: res.data.user.gender,
+            phone: res.data.user.phone,
+            status: res.data.user.status,
+            role: res.data.user.role,
+            picture: res.data.user.userPicture,
           };
         } else if (+res.statusCode === 423) {
           // Wrong password 401
-          throw new InvalidUsernamePasswordError();
+          throw new InactiveAccountError();
         } else if (+res.statusCode === 401) {
           throw new InvalidUsernamePasswordError();
         } else {
@@ -53,16 +56,18 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     signIn: "/signin",
   },
   callbacks: {
-    jwt({ token, user }) {
+    async jwt({ token, user }) {
       if (user) {
         token.user = user;
-        token.token = user.token;
       }
       return token;
     },
-    session({ session, token }) {
+    async session({ session, token }) {
       session.user = token.user;
       return session;
+    },
+    authorized: async ({ auth }) => {
+      return !!auth;
     },
   },
 });

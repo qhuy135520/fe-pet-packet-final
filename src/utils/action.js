@@ -1,14 +1,21 @@
 "use server";
-import { signIn } from "@/auth";
+import { signIn, signOut } from "@/auth";
+import refreshSession from "@/library/refreshSession";
+
+export async function unauthenticate() {
+  await signOut({
+    redirect: false,
+  });
+}
 
 export async function authenticate(username, password) {
   try {
     const r = await signIn("credentials", {
       username: username,
       password: password,
-      //   callbackUrl: "/",
       redirect: false,
     });
+
     return r;
   } catch (error) {
     if (error.name === "InvalidUsernamePasswordError") {

@@ -4,13 +4,15 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import SocialWrap from "../../../components/SocialWrap";
 import { useRef, useState } from "react";
+import { sendRequest } from "@/utils/api";
+import { toast } from "react-toastify";
 
 export default function SignUp() {
-
-  const confirmPasswordRef = useRef(null)
+  const confirmPasswordRef = useRef(null);
+  const route = useRouter();
 
   const [state, setState] = useState({
-    fullName: "",
+    name: "",
     email: "",
     phone: "",
     address: "",
@@ -19,8 +21,6 @@ export default function SignUp() {
     password: "",
     confirmPassword: "",
   });
-
-  const route = useRouter();
 
   function handleChange(e) {
     const formInput = { ...state };
@@ -31,30 +31,35 @@ export default function SignUp() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const password = state.password
-    const confirmPassword = state.confirmPassword
+    const password = state.password;
+    const confirmPassword = state.confirmPassword;
 
     if (password !== confirmPassword) {
       confirmPasswordRef.current.setCustomValidity("Passwords do not match");
     } else {
       confirmPasswordRef.current.setCustomValidity("");
 
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/auth/signup`,
-        {
-          method: "POST",
-          body: JSON.stringify(state),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      )
-      console.log(state)
-      if(res.ok){
-        
-        route.push('/verify-otp-signup')
+      const res = await sendRequest({
+        method: "POST",
+        url: `${process.env.NEXT_PUBLIC_API_URL}/api/auth/signup`,
+        body: state,
+        useCredentials: true
+      });
+
+      if (res?.error) {
+        toast.error(
+          <div>
+            <strong>Error Sign Up</strong>
+            <p style={{ color: "white" }}>{res?.message}</p>
+          </div>,
+          {
+            theme: "dark",
+          }
+        );
+      } else {
+        localStorage.setItem("emailSignup", state.email);
+        route.push("/verify-otp-signup");
       }
-      ;
     }
   }
 
@@ -72,7 +77,7 @@ export default function SignUp() {
               className="form-control"
               id="name"
               placeholder="Full Name"
-              name="fullName"
+              name="name"
               required
               pattern="[A-Za-z\s]+"
               onChange={(e) => handleChange(e)}
@@ -87,7 +92,7 @@ export default function SignUp() {
               id="username"
               placeholder="Username"
               name="username"
-              minlength="6"
+              minLength="6"
               required
               onChange={(e) => handleChange(e)}
               title="Username must contain at least 6 characters"
@@ -170,7 +175,7 @@ export default function SignUp() {
               placeholder="Password"
               name="password"
               required
-              minlength="6"
+              minLength="6"
               onChange={(e) => handleChange(e)}
               title="Password must contain at least 6 characters"
             />
@@ -184,7 +189,7 @@ export default function SignUp() {
               name="confirmPassword"
               placeholder="Confirm Password"
               required
-              minlength="6"
+              minLength="6"
               onChange={(e) => handleChange(e)}
               title="Password must contain at least 6 characters"
               ref={confirmPasswordRef}
