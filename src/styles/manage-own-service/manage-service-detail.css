@@ -1,0 +1,53 @@
+.manage-service-detail {
+    margin-top: 150px;
+}
+.manage-service-detail body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+}
+.manage-service-detail form {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.manage-service-detail fieldset {
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+}
+.manage-service-detail legend {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.manage-service-detail label {
+    display: block;
+    margin: 10px 0 5px;
+}
+.manage-service-detail input[type="text"], .manage-service-detail input[type="email"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.manage-service-detail input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.manage-service-detail input[type="submit"]:hover {
+    background-color: #0056b3;
+}

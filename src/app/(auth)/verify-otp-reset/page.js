@@ -31,7 +31,6 @@ export default function VerifyOtpReset() {
         useCredentials: true,
       },
     });
-    console.log(res);
     if (res?.error) {
       toast.error(
         <div>

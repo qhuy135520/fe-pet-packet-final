@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import CryptoJS from "crypto-js";
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -7,19 +8,26 @@ import { toast } from "react-toastify";
 import SocialWrap from "../../../components/SocialWrap";
 import { authenticate } from "../../../utils/action";
 import refreshSession from "@/library/refreshSession";
+import { useSession } from "next-auth/react";
 
 export default function LoginForm() {
   const router = useRouter();
+
 
   const [state, setState] = useState({
     username: "",
     password: "",
   });
+  const [remember, setRemember] = useState(false);
 
   function handleChange(e) {
     const formInput = { ...state };
     formInput[e.target.name] = e.target.value;
     setState(formInput);
+  }
+
+  function handleRememberChange(e) {
+    setRemember(e.target.checked);
   }
 
   async function handleSubmit(e) {
@@ -39,8 +47,22 @@ export default function LoginForm() {
         }
       );
     } else {
+      // if (session?.user.role == "ROLE_ADMIN") {
+      //   router.push("/admin");
+      // } else {
+      // if (remember === true) {
+      //   const encryptedPassword = CryptoJS.AES.encrypt(
+      //     password,
+      //     process.env.AUTH_SECRET
+      //   ).toString();
+      // }
+
+      // localStorage.setItem("usernameRemember", username);
+      // localStorage.setItem("passwordRemember", encryptedPassword);
+
       localStorage.setItem("loginSuccessful", "true");
       window.location.href = "/home";
+      // }
     }
   }
 
@@ -90,6 +112,8 @@ export default function LoginForm() {
                 type="checkbox"
                 className="form-check-input"
                 id="remember"
+                name="remember"
+                onChange={(e) => handleRememberChange(e)}
               />
               <label htmlFor="remember" className="form-check-label">
                 Keep me logged in

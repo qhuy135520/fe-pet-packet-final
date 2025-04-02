@@ -1,0 +1,82 @@
+
+.incoming div {
+  display: flex;
+  align-items: center;
+  height: 80vh;
+  max-width: 1000px;
+  width: calc(100% - 4rem);
+  margin: 0 auto;
+}
+.incoming div > * {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  max-width: 500px;
+  width: 100%;
+  padding: 2.5rem;
+}
+.incoming aside {
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/4424790/right-edges.png");
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: 25px 100%;
+}
+.incoming aside img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+.incoming main {
+  text-align: center;
+}
+.incoming main h1 {
+  font-family: "Fontdiner Swanky", cursive;
+  font-size: 4rem;
+  color: #c5dc50;
+  margin-bottom: 1rem;
+}
+.incoming main p {
+  margin-bottom: 2.5rem;
+}
+.incoming main p em {
+  font-style: italic;
+  color: #c5dc50;
+}
+.incoming main button {
+  font-family: "Fontdiner Swanky", cursive;
+  font-size: 1rem;
+  color: #383838;
+  border: none;
+  background-color: #f36a6f;
+  padding: 1rem 2.5rem;
+  transform: skew(-5deg);
+  transition: all 0.1s ease;
+  cursor: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/4424790/cursors-eye.png"),
+    auto;
+}
+.incoming main button:hover {
+  background-color: #c5dc50;
+  transform: scale(1.15);
+}
+@media (max-width: 700px) {
+  .incoming body {
+    background: #383838;
+    font-size: 16px;
+  }
+  .incoming div {
+    flex-flow: column;
+  }
+  .incoming div > * {
+    max-width: 700px;
+    height: 100%;
+  }
+  .incoming aside {
+    background-image: none;
+    background-color: white;
+  }
+  .incoming aside img {
+    max-width: 300px;
+  }
+}

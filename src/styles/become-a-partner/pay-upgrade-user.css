@@ -1,0 +1,161 @@
+.pay-upgrade-user #bg-div {
+  margin: 0;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+.pay-upgrade-user #border-btm {
+  padding-bottom: 20px;
+  margin-bottom: 0px;
+  box-shadow: 0px 35px 2px -35px lightgray;
+}
+.pay-upgrade-user #test {
+  margin-top: 0px;
+  margin-bottom: 40px;
+  border: 1px solid #ffe082;
+  border-radius: 0.25rem;
+  width: 60px;
+  height: 30px;
+  background-color: #ffecb3;
+}
+.pay-upgrade-user .active1 {
+  color: #00c853 !important;
+  font-weight: bold;
+}
+.pay-upgrade-user .bar4 {
+  width: 35px;
+  height: 5px;
+  background-color: #fff;
+  margin: 6px 0;
+}
+.pay-upgrade-user .list-group .tabs {
+  color: #000;
+}
+.pay-upgrade-user #menu-toggle {
+  height: 50px;
+}
+.pay-upgrade-user #new-label {
+  padding: 2px;
+  font-size: 10px;
+  font-weight: bold;
+  background-color: red;
+  color: #fff;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+.pay-upgrade-user #sidebar-wrapper {
+  min-height: 70vh;
+  margin-left: -15rem;
+  -webkit-transition: margin 0.25s ease-out;
+  -moz-transition: margin 0.25s ease-out;
+  -o-transition: margin 0.25s ease-out;
+  transition: margin 0.25s ease-out;
+}
+.pay-upgrade-user #sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+.pay-upgrade-user #sidebar-wrapper .list-group {
+  width: 15rem;
+}
+.pay-upgrade-user #page-content-wrapper {
+  min-width: 100vw;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.pay-upgrade-user #wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+.pay-upgrade-user .list-group-item.active {
+  z-index: 2;
+  color: #fff;
+  background-color: #6e6f6c !important;
+  /* border-color: #fff !important; */
+}
+@media (min-width: 768px) {
+  .pay-upgrade-user #sidebar-wrapper {
+    margin-left: 0;
+  }
+  .pay-upgrade-user #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+  .pay-upgrade-user #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+    display: none;
+  }
+}
+.pay-upgrade-user .card0 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.pay-upgrade-user .top-highlight {
+  color: #00c853;
+  font-weight: bold;
+  font-size: 20px;
+}
+.pay-upgrade-user .form-card input,
+.pay-upgrade-user .form-card textarea {
+  padding: 10px 15px 5px 15px;
+  border: none;
+  border: 1px solid lightgrey;
+  border-radius: 6px;
+  margin-bottom: 25px;
+  margin-top: 2px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: arial;
+  color: #2c3e50;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+.pay-upgrade-user .form-card input:focus,
+.pay-upgrade-user .form-card textarea:focus {
+  -moz-box-shadow: 0px 0px 0px 1.5px skyblue !important;
+  -webkit-box-shadow: 0px 0px 0px 1.5px skyblue !important;
+  box-shadow: 0px 0px 0px 1.5px skyblue !important;
+  font-weight: bold;
+  border: 1px solid skyblue;
+  outline-width: 0;
+}
+.pay-upgrade-user input.btn-success {
+  height: 50px;
+  color: #fff;
+  opacity: 0.9;
+}
+.pay-upgrade-user #below-btn a {
+  font-weight: bold;
+  color: #000;
+}
+.pay-upgrade-user .input-group {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.pay-upgrade-user .input-group input {
+  position: relative;
+  height: 90px;
+  margin-left: 1px;
+  margin-right: 1px;
+  border-radius: 6px;
+  padding-top: 30px;
+  padding-left: 25px;
+}
+.pay-upgrade-user .input-group label {
+  position: absolute;
+  height: 24px;
+  background: none;
+  border-radius: 6px;
+  line-height: 48px;
+  font-size: 15px;
+  color: gray;
+  width: 100%;
+  font-weight: 100;
+  padding-left: 25px;
+}
+.pay-upgrade-user input:focus + label {
+  color: #1e88e5;
+}
+.pay-upgrade-user #qr {
+  margin-bottom: 150px;
+  margin-top: 50px;
+}

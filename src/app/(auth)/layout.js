@@ -24,7 +24,7 @@ export default function AuthenLayout({ children }) {
         } site-wrap d-md-flex`}
       >
         <div className="row mr-0 ml-0">
-          <div
+          <div style={{zIndex:"unset"}}
             className={`${
               currentPath === "/signin"
                 ? signInStyles["bg-img-signin"]

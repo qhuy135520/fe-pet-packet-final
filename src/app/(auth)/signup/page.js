@@ -3,19 +3,46 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import SocialWrap from "../../../components/SocialWrap";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { sendRequest } from "@/utils/api";
 import { toast } from "react-toastify";
+import Preloder from "@/components/Preloder";
 
 export default function SignUp() {
+  const [loading, setLoading] = useState(false);
+  const checkNameRef = useRef(null);
+  const checkUsernameRef = useRef(null);
+  const checkPhoneRef = useRef(null);
+  const checkEmailRef = useRef(null);
+  const checkCityRef = useRef(null);
   const confirmPasswordRef = useRef(null);
+  const checkPasswordRef = useRef(null);
+
   const route = useRouter();
+
+  const [cities, setCities] = useState([]);
+
+  useEffect(() => {
+    async function fetchProvinces() {
+      try {
+        const res = await sendRequest({
+          method: "GET",
+          url: `${process.env.NEXT_PUBLIC_API_URL}/api/cities`,
+        });
+        setCities(res.data);
+      } catch (error) {
+        console.error("Failed to fetch provinces:", error);
+      }
+    }
+
+    fetchProvinces();
+  }, []);
 
   const [state, setState] = useState({
     name: "",
     email: "",
     phone: "",
-    address: "",
+    city: "",
     gender: "",
     username: "",
     password: "",
@@ -27,23 +54,46 @@ export default function SignUp() {
     formInput[e.target.name] = e.target.value;
     setState(formInput);
   }
-
   async function handleSubmit(e) {
     e.preventDefault();
+    const pattern = /^[a-zA-Z0-9À-ỹ\s]*$/;
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const patternPhone = /^0\d{9}$/;
 
     const password = state.password;
     const confirmPassword = state.confirmPassword;
-
-    if (password !== confirmPassword) {
-      confirmPasswordRef.current.setCustomValidity("Passwords do not match");
+    if (
+      state.name.length == 0 ||
+      !pattern.test(state.name) ||
+      state.name.length > 30
+    ) {
+      checkNameRef.current.setCustomValidity("Invalid Name");
+      checkNameRef.current.reportValidity();
+    } else if (state.username.length == 0) {
+      checkUsernameRef.current.setCustomValidity("Username is required!");
+      checkUsernameRef.current.reportValidity();
+    } else if (state.email.length == 0 || !emailPattern.test(state.email)) {
+      checkEmailRef.current.setCustomValidity("Invalid Email");
+      checkEmailRef.current.reportValidity();
+    } else if (state.phone.length != 10 || !patternPhone.test(state.phone)) {
+      checkPhoneRef.current.setCustomValidity("Invalid Phone Number!");
+      checkPhoneRef.current.reportValidity();
+    } else if (state.city.length == 0) {
+      checkCityRef.current.setCustomValidity("City is required!");
+      checkCityRef.current.reportValidity();
+    } else if (password.length < 6) {
+      checkPasswordRef.current.setCustomValidity("Invalid Password!");
+      checkPasswordRef.current.reportValidity();
+    } else if (password != confirmPassword) {
+      confirmPasswordRef.current.setCustomValidity("Passwords do not match!");
+      confirmPasswordRef.current.reportValidity();
     } else {
-      confirmPasswordRef.current.setCustomValidity("");
-
+      setLoading(true);
       const res = await sendRequest({
         method: "POST",
         url: `${process.env.NEXT_PUBLIC_API_URL}/api/auth/signup`,
         body: state,
-        useCredentials: true
+        useCredentials: true,
       });
 
       if (res?.error) {
@@ -56,11 +106,25 @@ export default function SignUp() {
             theme: "dark",
           }
         );
+        setState({
+          name: "",
+          email: "",
+          phone: "",
+          city: "",
+          gender: "",
+          username: "",
+          password: "",
+          confirmPassword: "",
+        });
+        setLoading(false);
       } else {
         localStorage.setItem("emailSignup", state.email);
         route.push("/verify-otp-signup");
       }
     }
+  }
+  if (loading) {
+    return <Preloder />;
   }
 
   return (
@@ -69,7 +133,7 @@ export default function SignUp() {
         <h1 className="title">Sign up</h1>
         <p className="caption mb-4">Create your account in seconds.</p>
 
-        <form onSubmit={(e) => handleSubmit(e)} className="pt-3">
+        <form className="pt-3">
           <div className="form-floating form-group">
             <label htmlFor="name">Full Name</label>
             <input
@@ -77,6 +141,7 @@ export default function SignUp() {
               className="form-control"
               id="name"
               placeholder="Full Name"
+              ref={checkNameRef}
               name="name"
               required
               pattern="[A-Za-z\s]+"
@@ -92,6 +157,7 @@ export default function SignUp() {
               id="username"
               placeholder="Username"
               name="username"
+              ref={checkUsernameRef}
               minLength="6"
               required
               onChange={(e) => handleChange(e)}
@@ -105,6 +171,7 @@ export default function SignUp() {
               className="form-control"
               id="email"
               name="email"
+              ref={checkEmailRef}
               placeholder="info@example.com"
               onChange={(e) => handleChange(e)}
               required
@@ -119,6 +186,7 @@ export default function SignUp() {
                 id="phoneNumber"
                 placeholder="Phone Number"
                 name="phone"
+                ref={checkPhoneRef}
                 required
                 onChange={(e) => handleChange(e)}
                 pattern="0\d{9}"
@@ -126,16 +194,22 @@ export default function SignUp() {
               />
             </div>
             <div className="col">
-              <label htmlFor="address">Adress</label>
-              <input
-                type="text"
+              <label htmlFor="city">City</label>
+              <select
+                id="city"
+                name="city"
                 className="form-control"
-                id="address"
-                name="address"
-                placeholder="Address"
                 required
+                ref={checkCityRef}
                 onChange={(e) => handleChange(e)}
-              />
+              >
+                <option value="">Select your province</option>
+                {cities.map((city) => (
+                  <option key={city.value} value={city.value}>
+                    {city.displayName}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
           <div className="form-check form-check-inline">
@@ -144,7 +218,7 @@ export default function SignUp() {
               type="radio"
               name="gender"
               id="male"
-              value="0"
+              value="MALE"
               required
               onChange={(e) => handleChange(e)}
             />
@@ -158,7 +232,7 @@ export default function SignUp() {
               type="radio"
               name="gender"
               id="female"
-              value="1"
+              value="FEMALE"
               required
               onChange={(e) => handleChange(e)}
             />
@@ -176,6 +250,7 @@ export default function SignUp() {
               name="password"
               required
               minLength="6"
+              ref={checkPasswordRef}
               onChange={(e) => handleChange(e)}
               title="Password must contain at least 6 characters"
             />
@@ -211,7 +286,11 @@ export default function SignUp() {
           </div>
 
           <div className="d-grid mb-4">
-            <button type="submit" className="btn btn-primary btn-block">
+            <button
+              type="submit"
+              className="btn btn-primary btn-block"
+              onClick={(e) => handleSubmit(e)}
+            >
               Create an account
             </button>
           </div>

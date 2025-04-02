@@ -1,0 +1,301 @@
+.admin-management {
+}
+.admin-management .search-container {
+  float: right;
+}
+
+/*  */
+/* CSS */
+.button-56 {
+  margin-bottom: 100px;
+  align-items: center;
+  background-color: #fee6e3;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-56:after {
+  background-color: #111;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform 0.2s ease-out;
+  z-index: -1;
+}
+
+.button-56:hover:after {
+  transform: translate(0, 0);
+}
+
+.button-56:active {
+  background-color: #ffdeda;
+  outline: 0;
+}
+
+.button-56:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .button-56 {
+    padding: 0 40px;
+  }
+}
+/*  */
+.admin-management .filter-container {
+  width: 700px;
+  height: 40px;
+  background: #e2f0f7;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 1px -1px 8px #3e3e3e 33;
+  color: #7a8e9e;
+}
+.admin-management .filter-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+}
+.admin-management .filter-item:hover {
+  color: #0a8;
+  cursor: pointer;
+}
+.admin-management .active-filter {
+  color: #0a8;
+}
+.admin-management i {
+  padding-right: 5px;
+}
+.admin-management .seperator {
+  border-right: 2px solid #abbbc7;
+  height: 25px;
+}
+.admin-management .filter-dropdown-content {
+  margin-top: 10px;
+  width: 500px;
+  transform-origin: top;
+  transition: ease-in-out 0.2;
+  transform: scaleY(0);
+}
+.admin-management .status-filter-chips {
+  background-color: #f3f6f7;
+  border-radius: 50px;
+  padding: 5px 10px;
+  color: #616060;
+}
+.admin-management .status-filter-chips:hover {
+  background-color: #00c39c;
+  color: #fff;
+  cursor: pointer;
+}
+.admin-management .active {
+  background-color: #0a8;
+  color: #fff;
+}
+.admin-management .scale {
+  transform: scaleY(1);
+}
+
+.admin-management .active-page {
+  background-color: #6d7fcc !important;
+  color: #fff !important;
+}
+
+.admin-management input[type="text"] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.admin-management .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.admin-management .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .admin-management .search-container {
+    float: none;
+  }
+  .admin-management a,
+  .admin-management input[type="text"],
+  .admin-management .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .admin-management input[type="text"] {
+    border: 1px solid #ccc;
+  }
+}
+
+.admin-management .active a {
+  background: #fff !important;
+  color: #6d7fcc !important;
+}
+
+.admin-management p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1em;
+  font-weight: 300;
+  line-height: 1.7em;
+  color: #999;
+}
+.admin-management a,
+.admin-management a:hover,
+.admin-management a:focus {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.admin-management .navbar {
+  padding: 15px 10px;
+  background: #fff;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 40px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+.admin-management .navbar-btn {
+  box-shadow: none;
+  outline: none !important;
+  border: none;
+}
+.admin-management .line {
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px dashed #ddd;
+  margin: 40px 0;
+}
+.admin-management .wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+}
+.admin-management #sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  background: #7386d5;
+  color: #fff;
+  transition: all 0.3s;
+}
+.admin-management #sidebar.active {
+  margin-left: -250px;
+}
+.admin-management #sidebar .sidebar-header {
+  padding: 20px;
+  background: #6d7fcc;
+}
+.admin-management #sidebar ul.components {
+  padding: 20px 0;
+  border-bottom: 1px solid #47748b;
+}
+.admin-management #sidebar ul p {
+  color: #fff;
+  padding: 10px;
+}
+.admin-management #sidebar ul li a {
+  padding: 10px;
+  font-size: 1.1em;
+  display: block;
+}
+.admin-management #sidebar ul li a:hover {
+  color: #7386d5;
+  background: #fff;
+}
+.admin-management #sidebar ul li.active > a,
+.admin-management a[aria-expanded="true"] {
+  color: #fff;
+  background: #6d7fcc;
+}
+.admin-management a[data-toggle="collapse"] {
+  position: relative;
+}
+.admin-management .dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+.admin-management ul ul a {
+  font-size: 0.9em !important;
+  padding-left: 30px !important;
+  background: #6d7fcc;
+}
+.admin-management ul.CTAs {
+  padding: 20px;
+}
+.admin-management ul.CTAs a {
+  text-align: center;
+  font-size: 0.9em !important;
+  display: block;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+.admin-management a.download {
+  background: #fff;
+  color: #7386d5;
+}
+.admin-management a.article,
+.admin-management a.article:hover {
+  background: #6d7fcc !important;
+  color: #fff !important;
+}
+.admin-management #content {
+  width: 100%;
+  padding: 20px;
+  min-height: 100vh;
+  transition: all 0.3s;
+}
+@media (max-width: 768px) {
+  .admin-management #sidebar {
+    margin-left: -250px;
+  }
+  .admin-management #sidebar.active {
+    margin-left: 0;
+  }
+  .admin-management #sidebarCollapse span {
+    display: none;
+  }
+}

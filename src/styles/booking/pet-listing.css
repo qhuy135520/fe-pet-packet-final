@@ -1,0 +1,106 @@
+.container-pets {
+  display: flex;
+  flex: wrap;
+  width: 100%;
+  margin: 0 0;
+}
+.card-checkbox-pets {
+  position: relative;
+  height: 300px;
+  width: 240px;
+  padding: 0;
+}
+
+.card-checkbox-pets input {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.card-checkbox-pets:active {
+  transform: scale(0.96);
+}
+
+.card-checkbox-pets input:checked ~ .card-checkbox-content {
+  border-color: #4589e5;
+  border-radius: 12px;
+}
+
+.card-checkbox-pets input:checked ~ .card-checkbox-content {
+  filter: grayscale(0.4);
+}
+
+.card-checkbox-pets .card-checkbox-content {
+  position: relative;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.02);
+}
+
+.card-checkbox-pets img {
+  position: relative;
+  border-radius: 12px;
+  height: 350px;
+  width: 300px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  transition: all ease 0.3s;
+}
+
+.card-checkbox-content:hover img {
+  width: 100%;
+  height: 240px;
+}
+
+.content-pets h4 {
+  margin: 0 0 8px 0;
+}
+
+.content-pets p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.content-pets {
+  position: absolute;
+  bottom: -122px;
+  width: 100%;
+  padding: 12px;
+  background-color: #ffffff;
+  transition: all ease 0.3s;
+}
+
+.card-checkbox-pets:hover .content-pets {
+  bottom: 0;
+}
+
+.card-checkbox-pets input:checked ~ .card-checkbox-content::before,
+.card-checkbox-pets input:checked ~ .card-checkbox-content:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+}
+
+.card-checkbox-content::before {
+  height: 20px;
+  width: 20px;
+  top: 10px;
+  right: 10px;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  background-color: #4589e5;
+}
+
+.card-checkbox-content::after {
+  height: 4px;
+  width: 8px;
+  top: 16px;
+  right: 16px;
+  border: 1px solid #ffffff;
+  border-width: 0 0 2px 2px;
+  transform: rotate(-45deg);
+}

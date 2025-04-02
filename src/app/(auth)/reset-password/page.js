@@ -33,7 +33,6 @@ export default function ResetPassword() {
         useCredentials: true,
       },
     });
-    console.log(res);
     if (res?.error) {
       toast.error(
         <div>

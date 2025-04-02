@@ -4,14 +4,14 @@ export default function TestimonialSection() {
   return (
     <section
       className="testimonial spad set-bg"
-      style={{backgroundImage: "url('/img/testimonial/testimonial-bg.jpg')"}}
+      style={{ backgroundImage: "url('/img/testimonial/testimonial-bg.jpg')" }}
     >
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
             <div className="section-title">
-              <h2>Trusted By Over 5000+ User</h2>
-              <p>What people say about us</p>
+              <h2>Trusted By User</h2>
+
             </div>
             <div className="testimonial__slider owl-carousel">
               <div className="testimonial__item" data-hash="review-1">
@@ -23,7 +23,7 @@ export default function TestimonialSection() {
                 </p>
                 <div className="testimonial__item__author">
                   <a href="#review-3">
-                    <Image src="/img/testimonial/author-3.png" alt="" width={55} height={55}/>
+                    <Image src="/img/testimonial/author-3.png" alt="" width={55} height={55} />
                   </a>
                   <a href="#review-1" className="active">
                     <Image src="/img/testimonial/author-1.png" alt="" width={55} height={55} />
@@ -46,20 +46,20 @@ export default function TestimonialSection() {
               </div>
               <div className="testimonial__item" data-hash="review-2">
                 <p>
-                &quot; We worked with Consultant. Our representative was very
+                  &quot; We worked with Consultant. Our representative was very
                   knowledgeable and helpful. Consultant made a number of
                   suggestions to help improve our systems. Consultant explained
                   how things work and why it would help.&quot;
                 </p>
                 <div className="testimonial__item__author">
                   <a href="#review-1">
-                    <Image src="/img/testimonial/author-1.png" alt=""  width={55} height={55}/>
+                    <Image src="/img/testimonial/author-1.png" alt="" width={55} height={55} />
                   </a>
                   <a href="#review-2" className="active">
                     <Image src="/img/testimonial/author-2.png" alt="" width={55} height={55} />
                   </a>
                   <a href="#review-3">
-                    <Image src="/img/testimonial/author-3.png" alt=""  width={55} height={55}/>
+                    <Image src="/img/testimonial/author-3.png" alt="" width={55} height={55} />
                   </a>
                 </div>
                 <div className="testimonial__item__author__text">
@@ -76,20 +76,20 @@ export default function TestimonialSection() {
               </div>
               <div className="testimonial__item" data-hash="review-3">
                 <p>
-                &quot; We worked with Consultant. Our representative was very
+                  &quot; We worked with Consultant. Our representative was very
                   knowledgeable and helpful. Consultant made a number of
                   suggestions to help improve our systems. Consultant explained
                   how things work and why it would help.&quot;
                 </p>
                 <div className="testimonial__item__author">
                   <a href="#review-2">
-                    <Image src="/img/testimonial/author-2.png" alt=""  width={55} height={55}/>
+                    <Image src="/img/testimonial/author-2.png" alt="" width={55} height={55} />
                   </a>
                   <a href="#review-3" className="active">
-                    <Image src="/img/testimonial/author-3.png" alt=""  width={55} height={55}/>
+                    <Image src="/img/testimonial/author-3.png" alt="" width={55} height={55} />
                   </a>
                   <a href="#review-1">
-                    <Image src="/img/testimonial/author-1.png" alt=""  width={55} height={55}/>
+                    <Image src="/img/testimonial/author-1.png" alt="" width={55} height={55} />
                   </a>
                 </div>
                 <div className="testimonial__item__author__text">

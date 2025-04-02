@@ -7,10 +7,9 @@ export default function WorkSection() {
         <div className="row">
           <div className="col-lg-12">
             <div className="section-title">
-              <h2>How Does It Work</h2>
+              <h2>About us</h2>
               <p>
-                Travelocity empowers travelers who are giving back on their
-                trips in ways big and small
+                Pet Service Connect is a dedicated platform designed to connect pet owners with trusted service providers.
               </p>
             </div>
           </div>
@@ -25,10 +24,9 @@ export default function WorkSection() {
                 width={100}
                 height={100}
               />
-              <h5>Location & Categories</h5>
+              <h5>Our Mission </h5>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore.
+                To bridge the gap between pet owners and professional services while promoting a community of care, trust.
               </p>
             </div>
           </div>
@@ -41,10 +39,9 @@ export default function WorkSection() {
                 width={100}
                 height={100}
               />
-              <h5>Explore Listting</h5>
+              <h5>Service Management</h5>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore.
+              Easily book pet services like grooming, veterinary care, boarding and pet walking around.
               </p>
             </div>
           </div>
@@ -57,10 +54,9 @@ export default function WorkSection() {
                 width={100}
                 height={100}
               />
-              <h5>Making Appointments</h5>
+              <h5>Trusted Providers</h5>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore.
+              We are committed to connecting you with professional and reliable service providers in your area.
               </p>
             </div>
           </div>

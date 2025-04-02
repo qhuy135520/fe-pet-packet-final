@@ -102,7 +102,7 @@
     /*--------------------------
         Select
     ----------------------------*/
-    $("select").niceSelect();
+    // $("select").niceSelect();
 
     /*------------------
 		Single Product
@@ -121,23 +121,23 @@
     /*-------------------
 		Quantity change
 	--------------------- */
-    $(".nice-scroll").niceScroll({
-        cursorcolor: "#a8a8a8",
-        cursorwidth: "8px",
-        background: "rgba(168, 168, 168, 0.3)",
-        cursorborder: "",
-        autohidemode: false,
-        horizrailenabled: false
-    });
+    // $(".nice-scroll").niceScroll({
+    //     cursorcolor: "#a8a8a8",
+    //     cursorwidth: "8px",
+    //     background: "rgba(168, 168, 168, 0.3)",
+    //     cursorborder: "",
+    //     autohidemode: false,
+    //     horizrailenabled: false
+    // });
 
-    $(".filter.nice-scroll").niceScroll({
-        cursorcolor: "#a8a8a8",
-        cursorwidth: "8px",
-        background: "rgba(168, 168, 168, 0.3)",
-        cursorborder: "",
-        autohidemode: true,
-        horizrailenabled: false
-    });
+    // $(".filter.nice-scroll").niceScroll({
+    //     cursorcolor: "#a8a8a8",
+    //     cursorwidth: "8px",
+    //     background: "rgba(168, 168, 168, 0.3)",
+    //     cursorborder: "",
+    //     autohidemode: true,
+    //     horizrailenabled: false
+    // });
 
     /*------------------
 		Barfiller

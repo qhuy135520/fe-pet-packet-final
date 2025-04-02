@@ -396,7 +396,7 @@ ol {
 .header__menu__user ul li .dropdown {
 	left: auto;
 	right: 0;
-	width: 130px;
+	width: 160px;
 	top: 160px;
 	margin-top: 12px;
 }
@@ -1033,7 +1033,7 @@ ol {
 }
 
 .ov-hid {
-	overflow: hidden;
+	/* overflow: hidden; */
 	padding-left: 270px;
 }
 
@@ -1604,6 +1604,10 @@ ol {
 	margin-right: 30px;
 }
 
+.listing-hero__icon img{
+	border-radius: 50%;
+}
+
 .listing__hero__text {
 	overflow: hidden;
 }
@@ -1779,6 +1783,10 @@ ol {
 	margin-bottom: 5px;
 }
 
+.listing__details__rating__overall ul li {
+	list-style: none;
+}
+
 .listing__details__rating__overall .listing__details__rating__star {
 	margin-bottom: 6px;
 }
@@ -1793,6 +1801,16 @@ ol {
 .listing__details__rating__overall span {
 	font-size: 15px;
 	color: #707070;
+}
+
+.listing__details__rating__filter{
+	margin-top: 40px;
+	margin-bottom: 80px;
+	list-style: none;
+}
+
+.listing__details__rating__filter button{
+	margin-right: 20px;
 }
 
 .listing__details__rating__bar {
@@ -2080,6 +2098,31 @@ ol {
 .listing__sidebar__contact__social a.google {
 	background: #2A79B9;
 }
+
+/* .listing__sidebar__accepted__size {
+	background: #ffffff;
+	-webkit-box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.05);
+	box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.05);
+	padding: 30px 30px 20px 30px;
+}
+
+.listing__sidebar__accepted__size h4 {
+	color: #333333;
+	font-weight: 600;
+	margin-bottom: 16px;
+}
+
+.listing__sidebar__accepted__size ul li {
+	font-size: 15px;
+	list-style: none;
+	color: #323232;
+	line-height: 32px;
+}
+
+.listing__sidebar__accepted__size ul li span {
+
+} */
+/*  */
 
 .listing__sidebar__working__hours {
 	background: #ffffff;
@@ -3121,7 +3164,7 @@ ol {
 		width: 240px;
 	}
 	.ov-hid {
-		overflow: hidden;
+		/* overflow: hidden; */
 		padding-left: 240px;
 	}
 	.listing__details__rating__bar__item .barfiller {
@@ -3215,7 +3258,7 @@ ol {
 		margin-bottom: 30px;
 	}
 	.ov-hid {
-		overflow: visible;
+		/* overflow: visible; */
 		padding-left: 0;
 	}
 	.filter {

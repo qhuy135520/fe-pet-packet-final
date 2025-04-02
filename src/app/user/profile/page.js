@@ -1,7 +1,9 @@
+import Profile from "@/components/user/profile/Profile";
+
 export default function UserProfile() {
     return (
-        <div>
-            USER PROFILE
-        </div>
+        <>
+            <Profile />
+        </>
     )
 }
